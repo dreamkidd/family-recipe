@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #E8683A;
+  --color-primary-light: #FFF0EB;
+  --color-secondary: #2D9C5A;
+  --color-secondary-light: #E8F5EE;
+  --color-surface: #FAFAF8;
+  --color-text-main: #1F1F1F;
+  --color-text-sub: #666666;
+  --color-text-hint: #999999;
+  --color-border: #EEEEEE;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+  background: #f3f4f6;
+}
+
+/* 隐藏滚动条但保持滚动 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 菜品卡片动画 */
+.dish-card {
+  animation: fadeInUp 0.3s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 模态框滑入 */
+.modal-sheet {
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 按钮点击反馈 */
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+/* 步骤列表 */
+.step-item {
+  position: relative;
+  padding-left: 28px;
+}
+
+.step-item::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #E8683A;
+  color: white;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* 食材行 */
+.ingredient-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ingredient-row:last-child {
+  border-bottom: none;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+/* 勾选动画 */
+.check-animate {
+  transition: all 0.2s ease;
+}
+
+.check-animate:checked + span {
+  text-decoration: line-through;
+  color: #999;
+}
