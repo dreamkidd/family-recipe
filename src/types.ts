@@ -15,7 +15,7 @@ export interface Affection {
 export interface Recipe {
   id: number;
   name: string;
-  category: 'meat' | 'veg' | 'soup' | 'staple';
+  category: 'meat' | 'veg' | 'cold' | 'soup' | 'staple';
   difficulty: 'easy' | 'medium' | 'hard';
   time: number;
   tags: string[];
